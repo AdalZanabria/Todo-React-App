@@ -4,6 +4,7 @@ import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
+import { completeTodo, deleteTodo } from "./utils";
 
 const defaultTodos = [
   { text: "Cortar cebolla", completed: false },
@@ -31,22 +32,6 @@ function App() {
     });
   }
 
-  const completeTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-
-    const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
-  };
-
   return (
     <div className="main-container">
       <header>
@@ -70,8 +55,8 @@ function App() {
                 key={todo.text}
                 text={todo.text}
                 completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
+                onComplete={() => completeTodo(todo.text, todos, setTodos)}
+                onDelete={() => deleteTodo(todo.text, todos, setTodos)}
               />
             ))}
           </TodoList>
