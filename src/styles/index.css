@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.glass {
+  @apply bg-white/30 backdrop-blur-sm rounded-lg shadow-xl border-white/10 border-2;
+}
+
+.main-container {
+  @apply w-full h-full min-h-screen bg-gradient-to-b from-pink-200 to-sky-200 flex flex-col justify-between items-center;
+
+  header {
+    @apply mb-4 p-4;
+  }
+
+  main {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  footer {
+    @apply bg-pink-200 mt-4 p-4 outline outline-white/50 w-full;
+  }
+}
