@@ -1,61 +1,14 @@
-import { useState, useEffect } from "react";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
-import { useLocalStorage } from "./hooks/useLocalStorage";
-// import { completeTodo, deleteTodo } from "./utils";
-
-// const defaultTodos = [
-//   { text: "Agregar persistencia a los datos.", completed: false },
-//   { text: "Practicar el manejo del estado.", completed: false },
-//   { text: "Practicar el React Hook useEffect.", completed: false },
-//   { text: "Conseguir nuevos proyectos.", completed: false },
-//   { text: "Mejorar mi LikedIn.", completed: false },
-// ];
+import { TodoContext } from "./context/TodoContext";
+import { useContext } from "react";
 
 function App() {
-  const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage("TODOS_V1", []);
-
-  const [searchValue, setSearchValue] = useState("");
-
-  const completedTodos = todos.filter((todo) => todo.completed).length;
-  const totalTodos = todos.length;
-
-  const completeTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    saveTodos(newTodos);
-  };
-
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-
-    const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
-
-  let searchedTodos = [];
-
-  if (!searchValue.length >= 1) {
-    searchedTodos = todos;
-  } else {
-    searchedTodos = todos.filter((todo) => {
-      const todoText = todo.text.toLowerCase();
-      const searchedText = searchValue.toLowerCase();
-      return todoText.includes(searchedText);
-    });
-  }
-
+  const { error, loading, searchedTodos, completeTodo, deleteTodo } =
+    useContext(TodoContext);
   // console.log("Render antes del use effect.");
   // useEffect(() => {
   //   console.log("useEffect");
@@ -70,11 +23,9 @@ function App() {
       </header>
       <main>
         <section className="glass p-4 flex flex-col justify-center items-center">
-          <TodoCounter total={totalTodos} completed={completedTodos} />
-          <TodoSearch
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
+          <TodoCounter />
+          <TodoSearch />
+
           <TodoList>
             {error && <p>Desesperate, si hubo un error.</p>}
             {loading && <p>Estamos cargando, no desesperes...</p>}
@@ -90,6 +41,7 @@ function App() {
               />
             ))}
           </TodoList>
+
           <CreateTodoButton />
         </section>
       </main>
