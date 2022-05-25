@@ -18,7 +18,7 @@
   }
 
   footer {
-    @apply bg-pink-200 mt-4 p-4 outline outline-white/50 w-full;
+    @apply bg-pink-200 mt-4 p-2 outline outline-white/50 w-full;
   }
 }
 

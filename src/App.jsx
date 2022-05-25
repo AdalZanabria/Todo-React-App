@@ -8,7 +8,11 @@ import { Modal } from "./components/Modal";
 import { TodoForm } from "./components/TodoForm";
 import { TodoContext } from "./context/TodoContext";
 import { CogIcon } from "@heroicons/react/solid";
-import {ArrowDownIcon} from "@heroicons/react/solid";
+import { ArrowDownIcon } from "@heroicons/react/solid";
+import {
+  TiSocialLinkedinCircular,
+  TiSocialGithubCircular,
+} from "react-icons/ti";
 
 function App() {
   const {
@@ -51,7 +55,7 @@ function App() {
               <div className="flex flex-col justify-center items-center text-violet-600/80">
                 <p>No se encontró ningún To-Do</p>
                 <p>Puedes crear uno haciendo click en este botón</p>
-                <ArrowDownIcon className="h-5 w-5 animate-bounce m-2"/>
+                <ArrowDownIcon className="h-5 w-5 animate-bounce m-2" />
               </div>
             )}
 
@@ -75,10 +79,20 @@ function App() {
           <CreateTodoButton />
         </section>
       </main>
-      <footer>
-        <p className="text-center text-violet-600 text-sm">
-          Adalberto Zanabria Castro, 2022.
-        </p>
+      <footer className="flex flex-col justify-center items-center text-violet-600 text-sm">
+        <p>Adalberto Zanabria Castro, 2022.</p>
+        <ul className="flex justify-center items-center text-3xl">
+          <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
+            <a href="https://github.com/AdalZanabria">
+              <TiSocialGithubCircular />
+            </a>
+          </li>
+          <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
+            <a href="https://www.linkedin.com/in/adal-zanabria/">
+              <TiSocialLinkedinCircular />
+            </a>
+          </li>
+        </ul>
       </footer>
     </div>
   );
