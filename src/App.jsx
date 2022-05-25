@@ -6,10 +6,10 @@ import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { Modal } from "./components/Modal";
 import { TodoForm } from "./components/TodoForm";
-import {TodosError} from "./components/TodosError";
+import { TodosError } from "./components/TodosError";
 import { TodosLoading } from "./components/TodosLoading";
+import { TodoEmpty } from "./components/TodoEmpty";
 import { TodoContext } from "./context/TodoContext";
-import { ArrowDownIcon } from "@heroicons/react/solid";
 import {
   TiSocialLinkedinCircular,
   TiSocialGithubCircular,
@@ -25,11 +25,6 @@ function App() {
     openModal,
     setOpenModal,
   } = useContext(TodoContext);
-  // console.log("Render antes del use effect.");
-  // useEffect(() => {
-  //   console.log("useEffect");
-  // }, [totalTodos]);
-  // console.log("Render luego del sue effect.");
 
   return (
     <div className="main-container">
@@ -43,15 +38,9 @@ function App() {
           <TodoSearch />
 
           <TodoList>
-            {error && <TodosError error={error}/>}
+            {error && <TodosError error={error} />}
             {loading && <TodosLoading />}
-            {!loading && !searchedTodos.length && (
-              <div className="flex flex-col justify-center items-center text-violet-600/80">
-                <p>No se encontró ningún To-Do</p>
-                <p>Puedes crear uno haciendo click en este botón</p>
-                <ArrowDownIcon className="h-5 w-5 animate-bounce m-2" />
-              </div>
-            )}
+            {!loading && !searchedTodos.length && <TodoEmpty />}
 
             {searchedTodos.map((todo) => (
               <TodoItem
