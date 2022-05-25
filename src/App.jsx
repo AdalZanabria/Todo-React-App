@@ -6,8 +6,9 @@ import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { Modal } from "./components/Modal";
 import { TodoForm } from "./components/TodoForm";
+import {TodosError} from "./components/TodosError";
+import { TodosLoading } from "./components/TodosLoading";
 import { TodoContext } from "./context/TodoContext";
-import { CogIcon } from "@heroicons/react/solid";
 import { ArrowDownIcon } from "@heroicons/react/solid";
 import {
   TiSocialLinkedinCircular,
@@ -42,15 +43,8 @@ function App() {
           <TodoSearch />
 
           <TodoList>
-            {error && (
-              <p className="text-red-500 font-bold">Error al cargar To-Dos.</p>
-            )}
-            {loading && (
-              <div className="flex">
-                <CogIcon className="animate-spin-slow text-violet-600 w-6 h-6 mr-2" />
-                <p className="text-violet-600">Cargando To-Dos...</p>
-              </div>
-            )}
+            {error && <TodosError error={error}/>}
+            {loading && <TodosLoading />}
             {!loading && !searchedTodos.length && (
               <div className="flex flex-col justify-center items-center text-violet-600/80">
                 <p>No se encontró ningún To-Do</p>

@@ -30,7 +30,7 @@ function TodoForm() {
         placeholder="Escribe aquí tu nuevo to-do."
         value={newTodoValue}
         onChange={onChange}
-        className="w-full placeholder:italic p-2 outline-2 outline outline-pink-200 hover:outline-pink-300"
+        className="w-full placeholder:italic p-2 outline-2 outline outline-pink-200 hover:outline-pink-300 text-violet-800"
       />
       <div className="flex gap-4">
         <Button text={"Cancelar"} submit={false} onClick={onCancel} />
