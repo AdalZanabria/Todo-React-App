@@ -66,12 +66,12 @@ function App() {
         <p>Adalberto Zanabria Castro, 2022.</p>
         <ul className="flex justify-center items-center text-3xl">
           <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
-            <a href="https://github.com/AdalZanabria">
+            <a href="https://github.com/AdalZanabria" target="_blank">
               <TiSocialGithubCircular />
             </a>
           </li>
           <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
-            <a href="https://www.linkedin.com/in/adal-zanabria/">
+            <a href="https://www.linkedin.com/in/adal-zanabria/" target="_blank">
               <TiSocialLinkedinCircular />
             </a>
           </li>
