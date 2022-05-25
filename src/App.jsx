@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 // import { completeTodo, deleteTodo } from "./utils";
 
 // const defaultTodos = [
@@ -14,34 +15,14 @@ import { CreateTodoButton } from "./components/CreateTodoButton";
 //   { text: "Mejorar mi LikedIn.", completed: false },
 // ];
 
-function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
-
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-
-  const [item, setItem] = useState(parsedItem);
-
-  const saveItem = (newItem) => {
-    const stringifiedItem = JSON.stringify(newItem);
-    localStorage.setItem(itemName, stringifiedItem);
-    setItem(newItem);
-  };
-
-  return [
-    item,
-    saveItem,
-  ];
-}
-
 function App() {
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
-  
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
+
   const [searchValue, setSearchValue] = useState("");
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
@@ -75,6 +56,12 @@ function App() {
     });
   }
 
+  // console.log("Render antes del use effect.");
+  // useEffect(() => {
+  //   console.log("useEffect");
+  // }, [totalTodos]);
+  // console.log("Render luego del sue effect.");
+
   return (
     <div className="main-container">
       <header>
@@ -89,6 +76,10 @@ function App() {
             setSearchValue={setSearchValue}
           />
           <TodoList>
+            {error && <p>Desesperate, si hubo un error.</p>}
+            {loading && <p>Estamos cargando, no desesperes...</p>}
+            {!loading && !searchedTodos.length && <p>Crea tu primer To Do.</p>}
+
             {searchedTodos.map((todo) => (
               <TodoItem
                 key={todo.text}
