@@ -1,14 +1,23 @@
+import { useContext } from "react";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
+import { Modal } from "./components/Modal";
+import { TodoForm } from "./components/TodoForm";
 import { TodoContext } from "./context/TodoContext";
-import { useContext } from "react";
 
 function App() {
-  const { error, loading, searchedTodos, completeTodo, deleteTodo } =
-    useContext(TodoContext);
+  const {
+    error,
+    loading,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  } = useContext(TodoContext);
   // console.log("Render antes del use effect.");
   // useEffect(() => {
   //   console.log("useEffect");
@@ -42,11 +51,17 @@ function App() {
             ))}
           </TodoList>
 
+          {openModal && (
+            <Modal>
+              <TodoForm />
+            </Modal>
+          )}
+
           <CreateTodoButton />
         </section>
       </main>
       <footer>
-        <p className="text-center text-violet-600">
+        <p className="text-center text-violet-600 text-sm">
           Adalberto Zanabria Castro, 2022.
         </p>
       </footer>
