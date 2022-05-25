@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { TodoContext } from "../context/TodoContext";
+import { Button } from "./Button";
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = useState("");
@@ -20,18 +21,20 @@ function TodoForm() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label>Nueva tarea</label>
+    <form
+      onSubmit={onSubmit}
+      className="bg-white p-4 flex flex-col justify-center items-center rounded-lg shadow-lg gap-4 w-4/5 sm:w-1/2 lg:w-1/3"
+    >
+      <label className="text-violet-600 font-bold">Nuevo To-Do</label>
       <textarea
-        placeholder="Escribe aquí tu nueva tarea."
+        placeholder="Escribe aquí tu nuevo to-do."
         value={newTodoValue}
         onChange={onChange}
+        className="w-full placeholder:italic"
       />
-      <div>
-        <button type="button" onClick={onCancel}>
-          Cancelar
-        </button>
-        <button type="submit">Añadir</button>
+      <div className="flex gap-4">
+        <Button text={"Cancelar"} submit={false} onClick={onCancel} />
+        <Button text={"Añadir"} submit={true} />
       </div>
     </form>
   );

@@ -14,7 +14,7 @@
   }
 
   main {
-    @apply flex flex-col justify-center items-center;
+    @apply flex flex-col justify-center items-center min-w-[50%];
   }
 
   footer {

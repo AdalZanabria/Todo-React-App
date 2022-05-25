@@ -1,8 +1,8 @@
 function TodoList(props) {
   return (
-    <section>
-      <ul>{props.children}</ul>
-    </section>
+    <div className="max-w-screen-sm">
+      <ul className="w-full">{props.children}</ul>
+    </div>
   );
 }
 

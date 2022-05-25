@@ -11,8 +11,8 @@ function TodoSearch() {
 
   return (
     <input
-      className="w-full m-4 rounded-lg p-2 outline outline-pink-200 shadow-lg focus:outline-pink-400 focus:scale-105 focus:shadow-xl transition ease-in-out duration-300"
-      placeholder="Busca un ToDo"
+      className="min-w-[50%] m-4 rounded-lg p-2 outline outline-pink-200 shadow-lg focus:outline-pink-400 focus:scale-110 focus:shadow-xl transition ease-in-out duration-300"
+      placeholder="Busca un To-Do"
       value={searchValue}
       onChange={onSearchValueChange}
     />
