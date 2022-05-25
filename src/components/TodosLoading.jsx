@@ -8,13 +8,13 @@ function TodosLoading() {
           <CogIcon className="animate-spin-slow w-10 h-10 m-0" />
           <div className="w-28">
             <div className="h-2 rounded bg-pink-400"></div>
-            <div class="grid grid-cols-3 gap-4 mt-2">
-              <div class="h-2 bg-pink-400 rounded col-span-2"></div>
-              <div class="h-2 bg-pink-400 rounded col-span-1"></div>
+            <div className="grid grid-cols-3 gap-4 mt-2">
+              <div className="h-2 bg-pink-400 rounded col-span-2"></div>
+              <div className="h-2 bg-pink-400 rounded col-span-1"></div>
             </div>
-            <div class="grid grid-cols-3 gap-4 mt-2">
-              <div class="h-2 bg-pink-400 rounded col-span-1"></div>
-              <div class="h-2 bg-pink-400 rounded col-span-2"></div>
+            <div className="grid grid-cols-3 gap-4 mt-2">
+              <div className="h-2 bg-pink-400 rounded col-span-1"></div>
+              <div className="h-2 bg-pink-400 rounded col-span-2"></div>
             </div>
           </div>
         </div>
@@ -30,13 +30,13 @@ function TodosLoading() {
           <CogIcon className="animate-spin-slow w-10 h-10 m-0" />
           <div className="w-28">
             <div className="h-2 rounded bg-pink-400"></div>
-            <div class="grid grid-cols-3 gap-4 mt-2">
-              <div class="h-2 bg-pink-400 rounded col-span-2"></div>
-              <div class="h-2 bg-pink-400 rounded col-span-1"></div>
+            <div className="grid grid-cols-3 gap-4 mt-2">
+              <div className="h-2 bg-pink-400 rounded col-span-2"></div>
+              <div className="h-2 bg-pink-400 rounded col-span-1"></div>
             </div>
-            <div class="grid grid-cols-3 gap-4 mt-2">
-              <div class="h-2 bg-pink-400 rounded col-span-1"></div>
-              <div class="h-2 bg-pink-400 rounded col-span-2"></div>
+            <div className="grid grid-cols-3 gap-4 mt-2">
+              <div className="h-2 bg-pink-400 rounded col-span-1"></div>
+              <div className="h-2 bg-pink-400 rounded col-span-2"></div>
             </div>
           </div>
         </div>

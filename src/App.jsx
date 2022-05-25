@@ -37,11 +37,11 @@ function App() {
           <TodoCounter />
           <TodoSearch />
 
-          <TodoList>
-            {error && <TodosError error={error} />}
-            {loading && <TodosLoading />}
-            {!loading && !searchedTodos.length && <TodoEmpty />}
+          {error && <TodosError error={error} />}
+          {loading && <TodosLoading />}
+          {!loading && !searchedTodos.length && <TodoEmpty />}
 
+          <TodoList>
             {searchedTodos.map((todo) => (
               <TodoItem
                 key={todo.text}
@@ -66,12 +66,16 @@ function App() {
         <p>Adalberto Zanabria Castro, 2022.</p>
         <ul className="flex justify-center items-center text-3xl">
           <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
-            <a href="https://github.com/AdalZanabria" target="_blank">
+            <a href="https://github.com/AdalZanabria" target="_blank" aria-label="Github link">
               <TiSocialGithubCircular />
             </a>
           </li>
           <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
-            <a href="https://www.linkedin.com/in/adal-zanabria/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/adal-zanabria/"
+              target="_blank"
+              aria-label="LinkedIn link"
+            >
               <TiSocialLinkedinCircular />
             </a>
           </li>
