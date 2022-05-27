@@ -13,6 +13,7 @@ import { TodoContext } from "./context/TodoContext";
 import {
   TiSocialLinkedinCircular,
   TiSocialGithubCircular,
+  TiSocialAtCircular
 } from "react-icons/ti";
 
 function App() {
@@ -79,6 +80,12 @@ function App() {
               <TiSocialLinkedinCircular />
             </a>
           </li>
+          <li className="hover:text-violet-900 active:text-pink-600 transition ease-in-out duration-300">
+            <a href="mailto:adal.zanabria@gmail.com" target="_blank"
+              aria-label="email link">
+            <TiSocialAtCircular />
+            </a>
+            </li>
         </ul>
       </footer>
     </div>
