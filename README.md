@@ -1,7 +1,9 @@
 <h1 align=center>To-Do React App</h1>
 <p align=center>Aplicación básica para tomar notas</p>
 
-<a href="https://imgur.com/HXDnkLQ"><img src="https://i.imgur.com/HXDnkLQ.gif" title="source: imgur.com" /></a>
+<a href="https://adalzanabria.github.io/Todo-React-App/">Deploy en Github Pages</a>
+
+<a align=center href="https://imgur.com/HXDnkLQ"><img src="https://i.imgur.com/HXDnkLQ.gif" title="source: imgur.com" /></a>
 
 <p><strong>Tecnologías aplicadas:</strong></p>
 <ul>
